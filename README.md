@@ -52,6 +52,46 @@ Pada tahap ini, data mentah disiapkan agar siap untuk dilatih oleh model. Proses
 
 ## Modeling
 
+Pada tahap ini, kami membangun dan melatih model deep learning untuk mengklasifikasikan gambar tulisan tangan menjadi dua kategori utama : 'Healthy' dan 'Parkinson'.
+
+Model yang digunakan adalah hasil Transfer Learning menggunakan arsitektur **MobileNetV2** sebagai base model. MobileNetV2 adalah arsitektur Convolutional Nerual Network (CNN) yang efisien, dilatih pada dataset ImageNet. Kami memilih MobileNetV2 karena arsitekturnya yang ringan namun memiliki kemampuan ekstraksi fitur gambar yang baik, cocok untuk aplikasi yang mungkin memerlukan efisiensi komputasi. 
+
+### Arsitektur Model 
+
+`Base Model` : `MobileNetV2` (dengan bobot ImageNet), kami membekukan lapisan-lapisan pada *base model* ini di awal pelatihan untuk mempertahankan fitur-fitur yang telah dipelajari.
+*   **Lapisan Kustom:** Setelah *base model*, kami menambahkan beberapa lapisan kustom untuk adaptasi dengan dataset dan tugas klasifikasi biner (Healthy vs Parkinson):
+    *   `GlobalAveragePooling2D`: Mengurangi dimensi spasial fitur dari *base model*.
+    *   `Dropout`: Menerapkan *dropout* dengan laju tertentu untuk mengurangi *overfitting*.
+    *   `Dense` (dengan aktivasi ReLU): Lapisan *fully connected* dengan regularisasi L2 untuk mempelajari kombinasi fitur yang kompleks.
+    *   `BatchNormalization`: Menormalisasi output dari lapisan Dense sebelumnya, membantu stabilisasi pelatihan.
+    *   `Dropout`: Lapisan *dropout* kedua untuk penambahan regularisasi.
+    *   `Dense` (dengan aktivasi Sigmoid): Lapisan output tunggal dengan aktivasi sigmoid untuk menghasilkan probabilitas kelas 'Parkinson'.
+
+### Konfigurasi Pelatihan
+
+*   **Optimizer:** Adam dengan *initial learning rate* tertentu.
+*   **Loss Function:** `binary_crossentropy`, cocok untuk tugas klasifikasi biner.
+*   **Metrik Evaluasi:** `accuracy`, `precision`, dan `recall` digunakan untuk memantau performa selama pelatihan dan evaluasi.
+*   **Class Weight:** Menggunakan bobot kelas (`class_weight='balanced'`) untuk menangani potensi ketidakseimbangan jumlah sampel antar kelas ('Healthy' dan 'Parkinson') dalam dataset pelatihan.
+*   **Callbacks:**
+    *   `EarlyStopping`: Menghentikan pelatihan lebih awal jika performa pada set validasi berhenti meningkat (berdasarkan `val_loss`) selama beberapa *epoch* (`patience`). Ini mencegah *overfitting*.
+    *   `ReduceLROnPlateau`: Mengurangi *learning rate* secara otomatis jika performa pada set validasi tidak membaik selama beberapa *epoch* tertentu, membantu model menemukan konvergensi yang lebih baik.
+
+### Eksperimen dan Pelacakan (MLflow)
+
+Kami melakukan beberapa eksperimen dengan konfigurasi *hyperparameter* yang berbeda (seperti *learning rate*, jumlah unit pada lapisan Dense, laju *dropout*, dan nilai regularisasi L2). Semua eksperimen ini dilacak menggunakan **MLflow**.
+
+MLflow digunakan untuk:
+*   **Melacak Parameter:** Menyimpan konfigurasi *hyperparameter* setiap run.
+*   **Melacak Metrik:** Merekam metrik performa (loss, accuracy, precision, recall) per epoch selama pelatihan, serta metrik akhir pada set validasi dan set tes.
+*   **Melacak Artefak:** Menyimpan artefak penting seperti plot performa (accuracy/loss vs epoch, confusion matrix), classification report, dan model Keras yang telah dilatih itu sendiri.
+
+Dengan menggunakan MLflow, kami dapat membandingkan performa dari berbagai konfigurasi dengan mudah dan mengidentifikasi model terbaik berdasarkan metrik evaluasi pada set tes.
+
+### Hasil
+
+Setelah melatih model dengan berbagai konfigurasi dan mengevaluasinya pada set tes yang terpisah, kami memilih model terbaik berdasarkan akurasi pada set tes. Hasil evaluasi lengkap (loss, accuracy, precision, recall, confusion matrix, dan classification report) dari model terbaik ini di-*log* ke MLflow dan juga disajikan dalam notebook untuk analisis lebih lanjut pada tahap berikutnya.
+
 ## Evaluation
 
 ## Apakah Problem Statements Sudah Terselesaikan?
