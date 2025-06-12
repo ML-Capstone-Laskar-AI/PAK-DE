@@ -94,6 +94,55 @@ Setelah melatih model dengan berbagai konfigurasi dan mengevaluasinya pada set t
 
 ## Evaluation
 
+Tahap terakhir dari proyek ini adalah mengevaluasi performa model terbaik yang telah dilatih dan melakukan analisis mendalam terhadap jenis kesalahan yang dibuat oleh model.
+
+### Tujuan Evaluasi
+
+Evaluasi dilakukan untuk mengukur seberapa baik model generalisasi pada data yang belum pernah dilihat sebelumnya (set tes). Metrik utama yang kami fokuskan meliputi:
+
+*   **Accuracy:** Proporsi prediksi yang benar secara keseluruhan.
+*   **Precision:** Dari semua gambar yang diprediksi sebagai Parkinson, berapa proporsi yang sebenarnya Parkinson. Penting untuk meminimalkan False Positives (memprediksi Parkinson pada orang sehat).
+*   **Recall (Sensitivity):** Dari semua gambar yang sebenarnya Parkinson, berapa proporsi yang berhasil dideteksi oleh model. Penting untuk meminimalkan False Negatives (gagal mendeteksi Parkinson pada orang yang sakit).
+*   **F1-Score:** Rata-rata harmonik dari Precision dan Recall, memberikan keseimbangan antara kedua metrik tersebut.
+*   **Loss:** Mengukur seberapa "salah" prediksi model (nilai yang lebih rendah lebih baik).
+
+### Confusion Matrix
+
+Sebagai bagian dari evaluasi, kami menghasilkan **Confusion Matrix** pada set tes. Matriks ini memberikan rincian visual tentang:
+
+*   **True Positives (TP):** Gambar Parkinson yang diprediksi benar sebagai Parkinson.
+*   **True Negatives (TN):** Gambar Sehat yang diprediksi benar sebagai Sehat.
+*   **False Positives (FP):** Gambar Sehat yang diprediksi salah sebagai Parkinson.
+*   **False Negatives (FN):** Gambar Parkinson yang diprediksi salah sebagai Sehat.
+
+Analisis Confusion Matrix sangat penting untuk memahami jenis kesalahan spesifik yang dibuat model, yang seringkali lebih informatif daripada sekadar melihat akurasi total.
+
+### Classification Report
+
+Selain Confusion Matrix, **Classification Report** memberikan ringkasan metrik Precision, Recall, dan F1-Score untuk setiap kelas ('Healthy' dan 'Parkinson'), serta metrik rata-rata (support, macro avg, weighted avg). Ini memungkinkan kami untuk melihat metrik performa yang ditargetkan untuk setiap kelas secara terpisah.
+
+### Analisis Kesalahan
+
+Untuk mendapatkan wawasan lebih lanjut, kami melakukan **Analisis Kesalahan** pada set tes. Ini melibatkan:
+
+1.  Mengidentifikasi sampel-sampel pada set tes di mana model membuat prediksi yang salah (baik False Positives maupun False Negatives).
+2.  Memvisualisasikan beberapa contoh gambar yang salah diklasifikasikan.
+3.  Mencoba memahami mengapa model mungkin kesulitan dengan gambar-gambar tersebut. Ini bisa karena:
+    *   Variasi visual yang tinggi dalam dataset.
+    *   Gambar yang buram atau berkualitas rendah.
+    *   Fitur yang kurang jelas membedakan antara kelas pada sampel tertentu.
+    *   Kesamaan visual antara gambar dari orang sehat dan orang dengan Parkinson pada kasus-kasus *borderline*.
+
+Analisis kesalahan ini memberikan umpan balik berharga untuk potensi perbaikan model di masa mendatang, seperti:
+*   Meningkatkan kualitas atau kuantitas data.
+*   Menerapkan teknik augmentasi yang lebih canggih.
+*   Menjelajahi arsitektur model lain.
+*   Melakukan fine-tuning pada *base model* (jika sebelumnya dibekukan).
+
+### Ringkasan Hasil
+
+Hasil evaluasi dan analisis kesalahan memberikan gambaran komprehensif tentang performa model dalam mendeteksi Parkinson dari gambar tulisan tangan. Metrik kuantitatif (Accuracy, Precision, Recall) dikombinasikan dengan wawasan dari Confusion Matrix dan analisis visual sampel yang salah diklasifikasikan, membantu kami memahami kekuatan dan kelemahan model saat ini. Detail hasil spesifik dari model terbaik (termasuk nilai metrik dan visualisasi plot) dicatat dan dapat dilihat dalam log MLflow untuk run terbaik.
+
 ## Apakah Problem Statements Sudah Terselesaikan?
 
 ## Referensi
