@@ -1,0 +1,266 @@
+/* PakDe - Parkinson Detector CSS */
+/* Custom CSS for PakDe Website */
+
+/* Global Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+
+.section-title {
+    font-weight: 700;
+    position: relative;
+    margin-bottom: 1.5rem;
+    color: #2d3748;
+}
+
+.section-subtitle {
+    color: #718096;
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Navbar Styles */
+.navbar {
+    padding: 1rem 0;
+    transition: all 0.3s ease;
+    background-color: rgba(13, 110, 253, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+.navbar.shadow {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-size: 1.8rem;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.nav-link {
+    font-weight: 500;
+    margin: 0 0.7rem;
+    padding: 0.5rem 0.3rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, #4a6cf7 0%, #2d3748 100%), url('https://images.unsplash.com/photo-1557825835-70d97c4aa567?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-position: center;
+    padding: 8rem 0 6rem;
+    position: relative;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(74, 108, 247, 0.9) 0%, rgba(45, 55, 72, 0.8) 100%);
+    z-index: 1;
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Card Styles */
+.card {
+    border: none;
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Button Styles */
+.btn {
+    border-radius: 0.5rem;
+    padding: 0.7rem 1.8rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+}
+
+.btn-lg {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #4a6cf7 0%, #2d3748 100%);
+    border: none;
+    box-shadow: 0 4px 15px rgba(74, 108, 247, 0.4);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #3a5ce6 0%, #1e2736 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(74, 108, 247, 0.6);
+}
+
+.btn-light {
+    background: white;
+    color: #4a6cf7;
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+}
+
+.btn-light:hover {
+    background: #f8f9fa;
+    color: #3a5ce6;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3);
+}
+
+.btn-outline-light {
+    color: white;
+    border-color: white;
+}
+
+.btn-outline-light:hover {
+    background-color: white;
+    color: #4a6cf7;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3);
+}
+
+/* Footer Styles */
+footer {
+    background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+    color: #fff;
+}
+
+footer a {
+    color: #e2e8f0;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+footer a:hover {
+    color: #4a6cf7;
+    text-decoration: none;
+    transform: translateX(5px);
+}
+
+footer h5 {
+    color: white;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.8rem;
+}
+
+footer h5::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 2px;
+    background-color: #4a6cf7;
+}
+
+/* Upload Section */
+#upload-section {
+    padding: 7rem 0;
+}
+
+/* Feature Icons */
+.feature-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #4a6cf7 0%, #2d3748 100%);
+    box-shadow: 0 10px 20px rgba(74, 108, 247, 0.3);
+}
+
+/* Testimonial Styles */
+.testimonial-text {
+    font-size: 1.1rem;
+    font-style: italic;
+    color: #4a5568;
+    line-height: 1.8;
+}
+
+/* Form Styles */
+.form-control {
+    border-radius: 0.5rem;
+    padding: 0.8rem 1.2rem;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #4a6cf7;
+    box-shadow: 0 0 0 0.25rem rgba(74, 108, 247, 0.25);
+}
+
+/* Progress Bar */
+.progress {
+    border-radius: 1rem;
+    background-color: #e2e8f0;
+    overflow: hidden;
+}
+
+.progress-bar {
+    background: linear-gradient(135deg, #4a6cf7 0%, #2d3748 100%);
+    transition: width 0.6s ease;
+}
+
+.bg-danger {
+    background: linear-gradient(135deg, #f56565 0%, #c53030 100%) !important;
+}
+
+.bg-success {
+    background: linear-gradient(135deg, #48bb78 0%, #2f855a 100%) !important;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 6rem 0 4rem;
+    }
+    
+    .feature-icon {
+        width: 60px;
+        height: 60px;
+    }
+}

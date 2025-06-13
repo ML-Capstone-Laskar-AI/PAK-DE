@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+
+{% block title %}Tim Capstone - PakDe{% endblock %}
+
+{% block content %}
+<!-- Header Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="mb-4">Tim Capstone</h1>
+                <p class="lead">Kenali tim di balik pengembangan PakDe - Parkinson Detection.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+        <div class="row g-4">
+
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body text-center p-4 d-flex flex-column">
+                        <div class="mb-3">
+                            <img src="{{ url_for('static', filename='img/ryan.jpg') }}" alt="Tengku Ryan Adiansyah Bani" class="rounded-circle img-fluid" style="width: 150px; height: 150px; object-fit: cover;">
+                        </div>
+                        <h4 class="team-card-name">Tengku Ryan Adiansyah Bani</h4>
+                        <p class="text-muted">Deployment Specialist </p>
+                        <div class="d-flex justify-content-center mt-3 mt-auto">
+                            <a href="https://linkedin.com/in/tengku-ryan-adiansyah-bani" target="_blank" class="btn btn-outline-primary"><i class="fab fa-linkedin me-2"></i>LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body text-center p-4 d-flex flex-column">
+                        <div class="mb-3">
+                            <img src="{{ url_for('static', filename='img/rei.png') }}" alt="Reisya Junita Putri" class="rounded-circle img-fluid" style="width: 150px; height: 150px; object-fit: cover;">
+                        </div>
+                        <h4 class="team-card-name">Reisya Junita Putri</h4>
+                        <p class="text-muted">Data Engineer</p>
+                        <div class="d-flex justify-content-center mt-3 mt-auto">
+                            <a href="https://www.linkedin.com/in/reisyajunita" target="_blank" class="btn btn-outline-primary"><i class="fab fa-linkedin me-2"></i>LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body text-center p-4 d-flex flex-column">
+                        <div class="mb-3">
+                            <img src="{{ url_for('static', filename='img/vania.png') }}" alt="Vania Rachmawati Dewi" class="rounded-circle img-fluid" style="width: 150px; height: 150px; object-fit: cover;">
+                        </div>
+                        <h4 class="team-card-name">Vania Rachmawati Dewi</h4>
+                        <p class="text-muted">AI Developer</p>
+                        <div class="d-flex justify-content-center mt-3 mt-auto">
+                            <a href="https://www.linkedin.com/in/vaniarachmawatidewi" target="_blank" class="btn btn-outline-primary"><i class="fab fa-linkedin me-2"></i>LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body text-center p-4 d-flex flex-column">
+                        <div class="mb-3">
+                            <img src="{{ url_for('static', filename='img/kenny.jpg') }}" alt="Kenny Aldebaran Roberts" class="rounded-circle img-fluid" style="width: 150px; height: 150px; object-fit: cover;">
+                        </div>
+                        <h4 class="team-card-name">Kenny Aldebaran Roberts</h4>
+                        <p class="text-muted">Project Manager</p>
+                        <div class="d-flex justify-content-center mt-3 mt-auto">
+                            <a href="https://www.linkedin.com/in/kenny-aldebaran-roberts-5728a11b8" target="_blank" class="btn btn-outline-primary"><i class="fab fa-linkedin me-2"></i>LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<style>
+    .team-card-name {
+        /* Memastikan semua area nama memiliki tinggi minimal yang sama */
+        min-height: 80px; 
+        
+        /* Menambahkan sedikit margin bawah agar tidak terlalu mepet dengan jabatan */
+        margin-bottom: 0.5rem; 
+    }
+</style>
+        <!-- Team Description -->
+        <div class="row mt-5">
+            <div class="col-lg-8 mx-auto">
+                <div class="card shadow-sm">
+                    <div class="card-body p-4">
+                        <h3 class="card-title mb-4">Tentang Tim Kami</h3>
+                        <p>Tim kami terdiri dari empat profesional dengan keahlian yang beragam dalam bidang teknologi, desain, dan analisis data. Kami berkolaborasi untuk mengembangkan PakDe (Parkinson Detection), sebuah platform berbasis kecerdasan buatan yang bertujuan untuk membantu deteksi dini penyakit Parkinson melalui analisis gambar.</p>
+                        
+                        <h4 class="mt-4">Visi Kami</h4>
+                        <p>Menyediakan alat deteksi dini penyakit Parkinson yang mudah diakses, akurat, dan dapat membantu meningkatkan kualitas hidup penderita melalui diagnosis awal dan penanganan yang tepat.</p>
+                        
+                        <h4 class="mt-4">Misi Kami</h4>
+                        <ul>
+                            <li>Mengembangkan teknologi deteksi Parkinson yang akurat dan dapat diandalkan</li>
+                            <li>Meningkatkan kesadaran masyarakat tentang penyakit Parkinson dan pentingnya deteksi dini</li>
+                            <li>Berkolaborasi dengan tenaga medis dan institusi kesehatan untuk validasi dan pengembangan lebih lanjut</li>
+                            <li>Menyediakan platform yang mudah diakses dan digunakan oleh semua kalangan</li>
+                        </ul>
+                        
+                        <h4 class="mt-4">Latar Belakang Proyek</h4>
+                        <p>Proyek PakDe merupakan bagian dari program capstone yang bertujuan untuk mengaplikasikan pengetahuan dan keterampilan kami dalam bidang teknologi untuk menyelesaikan masalah nyata di masyarakat. Kami memilih fokus pada penyakit Parkinson karena:</p>
+                        <ul>
+                            <li>Penyakit Parkinson merupakan gangguan neurologis yang umum terjadi, terutama pada populasi lanjut usia</li>
+                            <li>Deteksi dini dapat membantu penanganan yang lebih efektif dan meningkatkan kualitas hidup penderita</li>
+                            <li>Teknologi kecerdasan buatan memiliki potensi besar untuk membantu proses diagnosis</li>
+                            <li>Masih terbatasnya alat deteksi yang mudah diakses oleh masyarakat umum</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
