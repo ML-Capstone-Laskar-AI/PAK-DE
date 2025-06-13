@@ -56,7 +56,8 @@ st.markdown("""
 @st.cache_resource
 def load_model():
     try:
-        model = tf.keras.models.load_model('pakde_folder_model.keras')
+        model_path = os.path.join(os.path.dirname(__file__), 'pakde_folder_model.keras')
+        model = tf.keras.models.load_model(model_path)
         return model
     except Exception as e:
         st.error(f"Error loading model: {e}")
