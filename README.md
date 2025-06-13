@@ -143,8 +143,6 @@ Analisis kesalahan ini memberikan umpan balik berharga untuk potensi perbaikan m
 
 Hasil evaluasi dan analisis kesalahan memberikan gambaran komprehensif tentang performa model dalam mendeteksi Parkinson dari gambar tulisan tangan. Metrik kuantitatif (Accuracy, Precision, Recall) dikombinasikan dengan wawasan dari Confusion Matrix dan analisis visual sampel yang salah diklasifikasikan, membantu kami memahami kekuatan dan kelemahan model saat ini. Detail hasil spesifik dari model terbaik (termasuk nilai metrik dan visualisasi plot) dicatat dan dapat dilihat dalam log MLflow untuk run terbaik.
 
-## Apakah Problem Statements Sudah Terselesaikan?
-
 ## Referensi
 [1] Alia S, Hidayati HB, Hamdan M, et al. Penyakit Parkinson: Tinjauan Tentang Salah Satu Penyakit Neurodegeneratif yang Paling Umum. Aksona. 2022;1(2):95-99. doi:10.20473/aksona.v1i2.145
 
